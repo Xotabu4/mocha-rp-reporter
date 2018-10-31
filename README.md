@@ -24,7 +24,8 @@ let mochaMain = new Mocha({
             project: "project name",
             tags: [
                 "tag1", "tag2"
-            ]
+            ],
+            launchId: '1212387' // Pass already started launch id, so tests will be reported under it
         }                        
     }
 });

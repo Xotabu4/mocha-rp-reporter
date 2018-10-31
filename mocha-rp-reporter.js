@@ -1,5 +1,3 @@
-"use strict";
-
 const mocha = require('mocha');
 const path = require('path');
 
@@ -34,25 +32,26 @@ function RPReporter(runner, options) {
     });
 
     runner.on('start', function()  {
-        try {
-            let res = connector.startLaunch();
-            launchId = res.body.id;
-        } catch (err) {
-            console.log(`Failed to launch run. Error: ${err}`);
+        if (config.launchId) {
+            launchId = config.launchId
+            return 
+        } else {
+            try {
+                let res = connector.startLaunch();
+                launchId = res.body.id;
+            } catch (err) {
+                console.log(`Failed to launch run. Error: ${err}`);
+            }
         }
-
-
     });
 
-    runner.on('end', function(){
-        try {
-            connector.finishLaunch(launchId);
-        } catch (err) {
-            console.log(`Failed to finish run. Error: ${err}`);
-        }
-
-
-    });
+    // runner.on('end', function(){
+    //     try {
+    //         connector.finishLaunch(launchId);
+    //     } catch (err) {
+    //         console.log(`Failed to finish run. Error: ${err}`);
+    //     }
+    // });
 
     runner.on('suite', function(suite){
         if(suite.title === "") {

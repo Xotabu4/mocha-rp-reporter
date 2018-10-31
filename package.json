@@ -15,11 +15,16 @@
   "devDependencies": {
     "chai": "^3.5.0"
   },
-  "repository" :
-    { "type" : "git",
-      "url" : "https://github.com/fedoseev-vitaliy/mocha-rp-reporter.git"
-    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fedoseev-vitaliy/mocha-rp-reporter.git"
+  },
   "keywords": [
-    "epam", "reports", "portal", "mocha", "reporters", "reportportal"
+    "epam",
+    "reports",
+    "portal",
+    "mocha",
+    "reporters",
+    "reportportal"
   ]
 }
